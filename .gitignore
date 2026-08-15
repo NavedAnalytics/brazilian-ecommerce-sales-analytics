@@ -1,0 +1,55 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Power BI temp/lock files
+*.pbix.lock
+~$*.pbix
+*.tmp
+
+# Excel/Office temp files
+~$*.xlsx
+~$*.xls
+~$*.docx
+~$*.doc
+~$*.pptx
+~$*.ppt
+
+# Logs
+*.log
+logs/
+
+# Environment / secrets
+.env
+.env.local
+*.key
+*.pem
+config.local.*
+
+# Data exports / large data dumps (adjust as needed)
+*.bak
+*.backup
+/data/raw/
+/exports/
+
+# Python (if scripts are used for data prep)
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Node (if any web tooling is used)
+node_modules/
+npm-debug.log
+
+# Build/output folders
+/build/
+/dist/
+/output/

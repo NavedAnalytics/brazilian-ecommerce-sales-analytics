@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="E-Commerce_Sales_and_Customer_Analytics.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="query browser structure pragmas" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="7803"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="olist_ecommerce_clean" custom_title="0" dock_id="2" table="4,21:mainolist_ecommerce_clean"/><dock_state state="000000ff00000000fd00000001000000020000054a00000268fc0100000002fb000000160064006f0063006b00420072006f007700730065003101000000000000054a0000000000000000fb000000160064006f0063006b00420072006f007700730065003201000000000000054a0000013f00ffffff0000026a0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="olist_ecommerce_clean" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="263"/><column index="2" value="263"/><column index="3" value="95"/><column index="4" value="167"/><column index="5" value="159"/><column index="6" value="177"/><column index="7" value="193"/><column index="8" value="190"/><column index="9" value="263"/><column index="10" value="159"/><column index="11" value="223"/><column index="12" value="99"/><column index="13" value="89"/><column index="14" value="263"/><column index="15" value="263"/><column index="16" value="159"/><column index="17" value="55"/><column index="18" value="84"/><column index="19" value="300"/><column index="20" value="134"/><column index="21" value="165"/><column index="22" value="124"/><column index="23" value="111"/><column index="24" value="119"/><column index="25" value="119"/><column index="26" value="114"/><column index="27" value="300"/><column index="28" value="136"/><column index="29" value="207"/><column index="30" value="76"/><column index="31" value="125"/><column index="32" value="95"/><column index="33" value="136"/><column index="34" value="97"/><column index="35" value="263"/><column index="36" value="84"/><column index="37" value="207"/><column index="38" value="300"/><column index="39" value="133"/><column index="40" value="163"/><column index="41" value="93"/><column index="42" value="103"/><column index="43" value="52"/><column index="44" value="87"/><column index="45" value="90"/><column index="46" value="35"/><column index="47" value="80"/><column index="48" value="70"/><column index="49" value="87"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">-- select customer_state ,sum(total_price) as Total_Revenue
+-- from olist_ecommerce_clean
+-- where order_status=='delivered'
+-- group by customer_state
+-- order by Total_Revenue desc;
+
+
+
+-- 	Revenue by product category
+-- select product_category_name_english,sum(total_price) as Revenue_by_product_category
+-- from olist_ecommerce_clean
+-- where order_status='delivered'
+-- group by product_category_name_english
+-- order by Revenue_by_product_category desc;
+
+
+
+
+-- orders by time of day
+select time_of_day,count(distinct order_id) as Orders
+from olist_ecommerce_clean
+group by time_of_day;
+
+-- What is the average freight cost per order?
+
+
+select avg(sum_freight_cost) as Avg_freight_cost_per_order
+from(select order_id,sum(freight_value) as sum_freight_cost
+from olist_ecommerce_clean
+where order_status='delivered'
+group by order_id)t;
+
+-- 
+-- Which are the top 10 product categories by revenue?
+SELECT product_category_name_english,SUM(total_price) AS total_revenue
+FROM olist_ecommerce_clean
+WHERE order_status = 'delivered'
+GROUP BY product_category_name_english
+ORDER BY total_revenue DESC
+LIMIT 10;
+
+
+
+-- 
+-- Which states generate the most orders?
+select customer_state,count(distinct order_id) as Total_Orders
+from olist_ecommerce_clean
+group by customer_state
+order by Total_Orders desc;
+
+
+
+-- Customer analytics questions
+-- 1.Which customers placed the most orders?
+select customer_unique_id,count(distinct order_id) as Total_Orders
+from olist_ecommerce_clean
+group by customer_unique_id
+order by Total_Orders desc;
+
+
+-- How many repeat customers are there?
+select count(customer_unique_id) as total_repeat_customers
+from(select customer_unique_id,count(distinct order_id ) as total_orders
+from olist_ecommerce_clean
+group by customer_unique_id
+having count(distinct order_id)&gt;1)t;
+
+-- 
+-- How many repeat customers are there?
+select sum(case when total_orders &gt; 1 then 1 end)*100.0 / count(customer_unique_id) as total_repeat_customers_percent 
+from(select customer_unique_id,count(distinct order_id ) as total_orders
+from olist_ecommerce_clean
+group by customer_unique_id)as t;
+-- 
+
+
+-- Delivery and logistics questions
+
+-- What percentage of delivered orders were late?
+
+select sum( case when one_late_delivery = 1 then 1 else 0 end) *100.0 / count(order_id) as late_delivery_percent
+from(select order_id,max(Late_Delivery)as one_late_delivery
+from olist_ecommerce_clean
+where order_status='delivered'
+group by order_id) as t;
+
+
+-- 
+-- Which states have the highest average delivery time?
+select customer_state,avg(one_delivery_day) as avg_delivery_time
+from(select order_id,customer_state,max(Delivery_Days) as one_delivery_day
+from olist_ecommerce_clean
+where order_status='delivered' and Delivery_Days is not null
+group by order_id,customer_state)as t
+group by customer_state 
+order by avg_delivery_time desc;
+
+
+
+
+-- Which states have the highest average freight cost?
+
+select customer_state,avg(one_freight_value) as avg_freight_cost
+from(select order_id,customer_state,max(freight_value) as one_freight_value
+from olist_ecommerce_clean
+where order_status='delivered' 
+group by order_id,customer_state) as t
+group by customer_state
+order by avg_freight_cost desc;
+
+
+
+-- 
+-- Find the top 3 customers by total spending.
+select customer_unique_id,sum(total_price) as total_spending,rank()OVER (order by sum(total_price) desc) as rank
+from olist_ecommerce_clean
+where order_status= 'delivered'
+group by customer_unique_id
+limit 3;
+
+
+
+-- Find the top 5 product categories by revenue in each state.
+-- s
+select customer_state,product_category_name_english,total_revenue,rn
+from (select customer_state,product_category_name_english,sum(total_price) as total_revenue,rank()over(partition by customer_state order by total_price desc) as rn
+from olist_ecommerce_clean
+where order_status='delivered' 
+group by customer_state,product_category_name_english
+order by total_revenue DESC) as t
+where rn&lt;=5 
+order by customer_state,rn ;
+
+
+
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
