@@ -400,63 +400,69 @@ Example visualization topics:
 
 
 
-Looking at your Brazilian E-Commerce dashboard (2016–2018), here are the key insights that stand out:
 
-Overall Business Performance
+## 📊 Key Business Insights
 
-Your e-commerce business made R$16.19 Million in total revenue from 99,000 orders, between 2016 and 2018. On average, each order was worth R$167.80, and customers rated their experience 4.16 out of 5 — which is a good score overall.
+### 1. Overall Business Performance
 
-1. Most of Your Business Comes From a Few States
+* The platform generated approximately **R$15.42M in total revenue** from around **99K orders**.
+* The **Average Order Value (AOV)** was approximately **R$159.83**, indicating a moderate average customer spend per order.
+* The overall **average review score was around 4.0/5**, showing generally positive customer satisfaction.
 
-Almost all your sales come from just a handful of states — especially São Paulo (SP), which alone brings in R$6.08 Million, more than one-third of all revenue. Along with Rio de Janeiro and Minas Gerais, these three states make up more than half your business.
+### 2. Revenue & Sales Trends
 
-What this means: Your business is too dependent on one region. If something goes wrong there (competition, economic slowdown, delivery issues), it will hurt your whole business badly. Other states like Roraima, Amapá, and Amazonas barely contribute anything — this is an untapped opportunity if you can fix delivery there.
+* Revenue showed noticeable month-to-month fluctuations, with **stronger performance during the middle of the year** and a significant decline toward the end of the observed period.
+* Order volume followed a similar seasonal pattern, indicating that sales activity was not evenly distributed throughout the year.
+* The business should investigate the causes of high-performing months and replicate successful promotional or seasonal strategies.
 
-2. Customers Are Not Coming Back
+### 3. Geographic Performance
 
-This is the most important problem in your data.
+* **São Paulo (SP)** was the strongest-performing state, generating approximately **R$5.92M in revenue** and more than **41K orders**.
+* **Rio de Janeiro (RJ)** and **Minas Gerais (MG)** were the next major contributors, with approximately **R$2.13M** and **R$1.86M** in revenue respectively.
+* Revenue and order volume are highly concentrated in a small number of states, suggesting that these regions are the platform's primary markets.
 
-On average, each customer places only 1.03 orders — which basically means almost every customer buys once and never returns.
+### 4. Customer Purchasing Behavior
 
-What this means: You are spending money and effort to attract new customers, but you're not keeping them. A healthy business usually earns much more from repeat customers than new ones, because repeat customers are cheaper to sell to and trust you more. Right now, you're leaking almost all future revenue by not bringing customers back.
+* Customers placed approximately **1.03 orders per customer**, indicating that most customers made only a small number of purchases during the period.
+* **Afternoon orders were the highest**, with roughly **32K orders**, followed by evening, morning, and night.
+* This suggests that marketing campaigns, promotions, and customer engagement activities could be prioritized during high-traffic periods.
 
-What you can do: Introduce loyalty programs, personalized follow-up emails/offers, discounts on second purchases, or subscription-style products.
+### 5. Product Performance
 
-3. Shipping Costs Are High and Hurting Remote Regions
+* Product revenue is concentrated among several major categories, with categories such as **health & beauty, watches & gifts, bed & bath, sports & leisure, and computers/accessories** among the important contributors.
+* The product-category analysis shows that a relatively small group of categories contributes a substantial portion of overall revenue.
+* This indicates an opportunity to focus inventory planning, promotions, and cross-selling strategies on high-performing categories.
 
-On average, you spend R$23.97 on freight for every order — that's about 14% of the order's value just going to shipping. In far-away states like Roraima, Amapá, and Amazonas delivery takes 26 to 29 days on average, and freight costs are also the highest there.
+### 6. Customer Satisfaction
 
-What this means: Customers in these regions are likely avoiding your store because shipping takes too long and costs too much — not because they don't want your products. This directly explains why those states show almost no sales.
+* The majority of orders received **high review scores**, with approximately **57K orders receiving a 5-star rating**.
+* However, lower review scores are still present, creating an opportunity to investigate the reasons behind dissatisfied customers.
+* Delivery experience appears to be an important area to investigate because longer delivery times can negatively affect customer satisfaction.
 
-What you can do: Consider regional warehouses, partnerships with local delivery services, or adjusted pricing/shipping options for far states.
+### 7. Logistics & Delivery Performance
 
-4. Slow Delivery Is Lowering Customer Happiness
+* The overall **average delivery time was approximately 12.09 days**.
+* The **late delivery rate was 9.03%**, meaning roughly 9 out of every 100 orders experienced late delivery.
+* Delivery performance varies significantly by state. **Roraima (RR)** had the highest average delivery time at approximately **29 days**, followed by **Amapá (AP)** and **Amazonas (AM)**.
+* These regions may require logistics optimization, better seller coverage, or improved transportation planning.
 
-Even though only about 8% of orders are officially "late," your average delivery time is 12 days, which is quite long. Looking at customer reviews, you can clearly see that the longer delivery takes, the lower customers rate their experience.
+### 8. Freight Cost
 
-Also, you have a fairly large group of unhappy customers — around 11,000 one-star reviews, more than the combined total of 2-star and 3-star reviews. This shows a "love it or hate it" pattern: most people are satisfied, but a meaningful group has a genuinely bad experience.
+* Average freight cost also varies considerably across states.
+* **Pernambuco (PE)** had the highest average freight cost at approximately **R$35.8**, followed by **Bahia (BA)** at around **R$30.0**.
+* High freight-cost regions should be analyzed to identify opportunities for better shipping partnerships, regional fulfillment, or optimized delivery routes.
 
-What this means: Since customers rarely return anyway (see point 2), a bad delivery experience may be permanently losing that customer, with no second chance to win them back.
+### 9. Key Business Recommendations
 
-5. Most Customers Pay With Credit Cards
+Based on the analysis, the following actions could improve business performance:
 
-About 75% of all payments are made using credit cards, while only about 20% use boleto (a common Brazilian payment method), and very few use debit cards or vouchers.
-
-What this means: You're heavily relying on one payment method. If there's ever an issue with card payment processing, or if economic conditions make credit less accessible, a large part of your revenue could be at risk.
-
-6. A Few Product Categories Drive Most of the Revenue
-
-Your top-selling categories are Health & Beauty, Watches & Gifts, and Bed/Bath/Table items. These categories bring in the most money, while categories like cool_stuff,auto and garden_tools contribute very little.
-
-What this means: It's good to know your strong categories, but it's worth checking if these categories are also profitable — not just high in sales. Some categories (like furniture or gifts) often cost more to ship, which can eat into profits even if sales look strong.
-
-Summary: What to Focus On First
-
-1	Issue is that customers don't return (1.03 orders/customer).It matters beacause biggest growth opportunity retention is cheaper than new customer acquisition
-2	 Issue is high freight cost & slow delivery in remote states .It matters beacause  it actively blocking sales growth in untapped regions
-3	 Issue is Delivery delays hurting reviews . It matters beacause it directly connected to customer satisfaction and lost repeat business
-4	 Issue is heavy reliance on one region (SP) and one payment method (credit card).It matters because	business risk if either is disrupted
-
+* Focus marketing and customer acquisition efforts on **high-performing states such as SP, RJ, and MG**.
+* Investigate strategies to increase **repeat purchases and customer retention**, given the low order-per-customer ratio.
+* Optimize logistics in states with **very high delivery times**.
+* Investigate the causes of **late deliveries and low review scores**.
+* Optimize shipping strategies in regions with **high freight costs**.
+* Prioritize inventory and promotions for **high-revenue product categories**.
+* Use high-order periods, particularly the **afternoon**, for targeted campaigns and promotional activities.
 
 # Tools & Technologies
 
