@@ -139,14 +139,14 @@ Example dashboard snapshot:
 
 | KPI | Value |
 |---|---:|
-| Total Revenue | R$16.19M |
+| Total Revenue | R$15.42M |
 | Total Orders | ~99K |
-| Average Order Value | R$167.80 |
+| Average Order Value | R$159.83 |
 | Average Delivery Days | 12.09 days |
-| Average Review Score | 4.16 |
+| Average Review Score | 4.0 |
 | Orders per Customer | 1.03 |
-| Late Delivery % | 8.13% |
-| Average Freight Cost / Order | R$23.97 |
+| Late Delivery % | 9.03% |
+| Average Freight Cost / Order | R$22.79 |
 
 > KPI values can change depending on filters, aggregation logic, or the final cleaned dataset.
 
@@ -182,7 +182,6 @@ Focuses on customer segmentation, purchasing behavior, and customer satisfaction
 - Orders by time of day
 - Review score distribution
 - Review score vs. delivery duration
-- Review score drivers
 - Customer purchasing behavior
 - Orders per customer
 
@@ -580,7 +579,7 @@ notebooks/notebook/E-Commerce-Sales-Customer-Analytics.ipynb
 
 **Naved Khan**
 
-GitHub: https://github.com/NavedAnalytics
+GitHub: https://github.com/navedanalytics
 
 
 ## ⭐ If you found this project useful, please consider giving it a Star!
