@@ -400,7 +400,6 @@ Example visualization topics:
 
 
 
-
 ## 📊 Key Business Insights
 
 ### 1. Overall Business Performance
