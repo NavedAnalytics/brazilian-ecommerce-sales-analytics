@@ -580,7 +580,7 @@ notebooks/notebook/E-Commerce-Sales-Customer-Analytics.ipynb
 
 **Naved Khan**
 
-GitHub: https://github.com/NavedAnalytics
+GitHub: https://github.com/navedanalytics
 
 
 ## ⭐ If you found this project useful, please consider giving it a Star!
